@@ -1,4 +1,5 @@
 import os
+import getpass
 
 from notebook.utils import url_path_join
 from notebook.base.handlers import IPythonHandler
@@ -99,4 +100,5 @@ def load_jupyter_server_extension(nb_server_app):
     web_app = nb_server_app.web_app
     host_pattern = '.*$'
     route_pattern = url_path_join(web_app.settings['base_url'], 'higlass/([0-9]+)/(.*)')
-    web_app.add_handlers(host_pattern, [(route_pattern, HiGlassProxyHandler, dict(sockets_dir='/tmp/higlass'))])
+    sockets_dir = os.path.join('/tmp', getpass.getuser(), 'higlass')
+    web_app.add_handlers(host_pattern, [(route_pattern, HiGlassProxyHandler, dict(sockets_dir=sockets_dir))])
