@@ -9,6 +9,11 @@ from urllib.parse import quote
 import pycurl
 
 class HiGlassProxyHandler(IPythonHandler):
+    """
+    A jupyter-to-unix-socket proxy, meant to forward to a higlass instance on the same machine.
+
+    Heavily based on https://github.com/jupyterhub/jupyter-server-proxy
+    """
     def __init__(self, *args, **kwargs):
         self.sockets_dir = kwargs.pop('sockets_dir', '/tmp/higlass')
         super().__init__(*args, **kwargs)
