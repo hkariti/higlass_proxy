@@ -27,7 +27,7 @@ class HiGlassProxyHandler(IPythonHandler):
     def get_client_uri(self, protocol, proxied_path):
         client_path = quote(proxied_path, safe=":/?#[]@!$&'()*+,;=-._~")
 
-        client_uri = f'{protocol}://localhost/{proxied_path}'
+        client_uri = f'{protocol}://localhost/{client_path}'
         if self.request.query:
             client_uri += '?' + self.request.query
 
