@@ -90,6 +90,11 @@ class HiGlassProxyHandler(IPythonHandler):
             if response.body:
                 self.write(response.body)
 
+def _jupyter_server_extension_paths():
+    return [{
+        "module": "higlass_proxy"
+    }]
+
 def load_jupyter_server_extension(nb_server_app):
     """
     Called when the extension is loaded.

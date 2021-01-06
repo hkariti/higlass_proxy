@@ -6,7 +6,7 @@ def get_requirements(path):
 
 setup_args = {
     "name": "higlass_proxy",
-    "version": 0.1,
+    "version": 0.2,
     "description": "Proxy for jupyter for higlass daemons using unix sockets",
     "url": "https://github.com/hkariti/higlass_proxy",
     "author": "Hagai Kariti",
