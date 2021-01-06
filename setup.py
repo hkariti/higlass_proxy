@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 def get_requirements(path):
     content = open(path).read()
@@ -13,6 +13,8 @@ setup_args = {
     "author_email": "hkariti@gmail.com",
     "keywords": ["higlass", "jupyter"],
     "install_requires": get_requirements("requirements.txt"),
+    "packages": find_packages(),
+
 }
 
 setup(**setup_args)
